@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-sudo_password=""
+
+read -p "Enter $USER sudo user's password: " sudo_password
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
