@@ -20,6 +20,10 @@ su - ${USER}
 
 id -nG
 
-sudo usermod -aG docker ${USER}
+echo $sudo_password | sudo usermod -aG docker ${USER}
+
+# Got permission denied event after adding $USER to docker group https://askubuntu.com/a/1057406
+echo $sudo_password | sudo chmod a+rwx /var/run/docker.sock
+echo $sudo_password | sudo chmod a+rwx /var/run/docker.pid
 
 docker info
